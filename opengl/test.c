@@ -1,15 +1,15 @@
 #include <GL/glut.h>
 #include <stdlib.h>
-#define UR 0.5
+#define UR 0.0
 #define UG 1.0
-#define UB 0.1
+#define UB 0.0
 
-#define MR 0.8
+#define MR 1.0
 #define MG 0.0
 #define MB 0.0
 
-#define DR 0.1176
-#define DG 0.5647
+#define DR 0.0
+#define DG 0.0
 #define DB 1.0
 
 
@@ -22,7 +22,45 @@
 
 #define LM glVertex3f(-1, 0, 0)
 #define RM glVertex3f(1, 0, 0)
-
+void BresenHam(int x1, int y1, int x2, int y2)
+{
+	    int x = x1;
+	        int y = y1;
+		    int dx = abs(x2 - x1);
+		        int dy = abs(y2 - y1);
+			    int s1 = sign(x2 - x1);
+			        int s2 = sign(y2 - y1);
+				    int interchange = 0;
+				        if (dy > dx)
+						    {
+							            int temp = dx;
+								            dx = dy;
+									            dy = temp;
+										            interchange = 1;
+											        }
+					    else
+						        {
+								        interchange = 0;
+									    }
+					        int e = 2 * dy - dx;
+						    for (int i = 1;i <= dx;i++)
+							        {
+									        //画点 （x，y）
+									        while (e > 0)
+											        {
+													            if (interchange == 1)
+															                    x = x + s1;
+														                else
+																	                y = y + s2;
+																            e = e - 2 * dx;
+																	            }
+										        if (interchange == 1)
+												            y = y + s2;
+											        else
+													            x = x + s1;
+												        e = e + 2 * dy;
+													    }
+}
 
 void init(void) 
 {
