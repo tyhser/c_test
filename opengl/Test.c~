@@ -1,6 +1,6 @@
 #include <GL/glut.h>
 #include <stdlib.h>
-#define sign(x) (x == 0)?(0):((x == 0)?(0):(x))
+#define sign(x) (x == 0)?(0):((x > 0)?(1):(-1))
 #define UR 0.0
 #define UG 1.0
 #define UB 0.0

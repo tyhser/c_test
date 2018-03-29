@@ -1,3 +1,3 @@
-test: test.c
-	gcc test.c -l GL -l GLU -l glut -o test
+Test: Test.c
+	gcc Test.c -l GL -l GLU -l glut -o Test
 
