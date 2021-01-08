@@ -7,8 +7,8 @@
 
 | index | data range  | description | note |
 | :------: |    :-------: |  :----:  |:----: | 
-|0               |0x55            |             |            |
-|1               |0xAA             |            |            |
+|0        |0x55  |frame head|            |
+|1               |0xAA |frame head|            |
 |2               |unused            |           |           |
 |3           |[0x01-0x0D] |   action element id| |
 |4           |[0x00:0xFF]  |       motor FWD REV|  |
@@ -21,11 +21,10 @@
 |9           | [0x00:0x01] |           motor busy||
 |10          | Received|||
 |11          |    Error id|||
-|12          |   0x5A| ||
-|13          |   0xA5| | |
+|12          |   0x5A|frame tail||
+|13          |   0xA5|frame tail| |
 |14          |  CRC16 Low byte|||
 |15          |  CRC16 High byte| | | |
-
 
 ## Note:
 **1. 主控板收到上位机数据后修改原数据的回复位为 0xFF, 将错误码填入原数据帧后改写CRC位立即回复**
@@ -43,7 +42,7 @@
 
  **5. 回复**
  * 00 非回复， FF回复
-
+ 
  **6. Error id**
 
  ```
