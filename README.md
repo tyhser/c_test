@@ -14,13 +14,13 @@
 |4           |[0x00:0xFF]  |       motor FWD REV|  |
 |            |[0xA1:0xB1]    |     motor RUN STOP| |
 |            |[0x0A:0x05]|      |      |
-|5           |24:data High byte|||
-|6           |24:data Middle byte|||
-|7           |24:data Low byte|||
+|5           |24:data High byte|high byte of 24 bit data||
+|6           |24:data Middle byte|middle byte of 24 bit data||
+|7           |24:data Low byte|low byte of 24 bit data||
 |8           | [0x00:0xFF]  |          Reply flag||
 |9           | [0x00:0x01] |           motor busy||
 |10          | Received|||
-|11          |    Error id|||
+|11          |    Error id|Error ID reply from controller||
 |12          |   0x5A|frame tail||
 |13          |   0xA5|frame tail| |
 |14          |  CRC16 Low byte|||
