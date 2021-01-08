@@ -1,11 +1,12 @@
 #  通信协议
+
 ##1. 物理层属性
 **9600,  8,  1,  N**
 
 ##2.  数据帧
 
 | index | data range  | description | note |
- :------: |    :-------: |  :----:  |:---- : 
+| :------: |    :-------: |  :----:  |:----: | 
 |0               |0x55            |             |            |
 |1               |0xAA             |            |            |
 |2               |unused            |           |           |
@@ -25,6 +26,7 @@
 |14          |  CRC16 Low byte|||
 |15          |  CRC16 High byte| | | |
 
+
 ##Note:
 **1. 主控板收到上位机数据后修改原数据的回复位为 0xFF, 将错误码填入原数据帧后改写CRC位立即回复**
 **2. 如果在超时时间后没有回复, 再次发送**
@@ -34,16 +36,13 @@
 * 0x0D: all action element, 只可以关闭
 * 0x0C : request for motor state(busy or not)
 
-
  **4. 功能序号:**
  * 电机运动模式: FF 正向(远离光电开关侧) 00 反向(返回光电开关侧) B0  返回到0
  * 电机停止： B1
  * 阀门: FF open 00 close
 
-
  **5. 回复**
  * 00 非回复， FF回复
-
 
  **6. Error id**
 
@@ -56,21 +55,3 @@
  E_CONTROLLER    0x05
 
  ```
-
- ### communication Sequence Diagram between host and controller
-
-```seq
-host->controller: Req
-controller-->host: Reply
-Note right of controller:  action elements active
-
-```
-### End
-
-
-| Left-Aligned  | Center Aligned  | Right Aligned |
-| :------------ |:---------------:| -----:|
-| col 3 is      | some wordy text | $1600 |
-| col 2 is      | centered        |   $12 |
-| zebra stripes | are neat        |    $1 |
-
